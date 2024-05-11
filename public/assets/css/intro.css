@@ -1,0 +1,57 @@
+.main {
+    font-family: 'Montserrat-regular';
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+}
+
+.icono_transicion {
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    background-image: url('../iconos/a.png');
+    background-position: center center;
+    background-size: cover;
+}
+
+.title_main {
+    color: var(--white);
+    font-size: 3rem;
+}
+
+.btn_next {
+    border-radius: 16px;
+    padding: 1rem 2rem;
+    color: var(--primary-color);
+}
+
+.logo_universidad {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.data_person {
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.data_person .name_profile {
+    font-family: 'Montserrat-bold';
+}
+
+
+@media screen and (max-width: 1000px) {
+    .column_others {
+        display: none;
+    }
+    .column-main{
+        width: 100% !important;
+    }
+}

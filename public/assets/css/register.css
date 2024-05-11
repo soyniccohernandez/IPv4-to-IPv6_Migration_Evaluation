@@ -1,0 +1,44 @@
+.main {
+    font-family: 'Montserrat-regular';
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo_universidad {
+    width: 30%;
+    margin-bottom: 2rem;
+}
+
+.ilustacion_register {
+    width: 70%;
+    animation: floatAnimation 3s ease-in-out infinite alternate; 
+}
+
+.subtitle_register{
+    font-size: 1.3em;
+    font-family: 'Montserrat-medium';
+}
+
+.btn-login {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+h1 {
+    font-family: 'Montserrat-bold';
+}
+
+.enlace_crear_cuenta {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1em;
+    text-align: center;
+    display: block;
+    margin: 2rem;
+}
+
+.enlace_crear_cuenta:hover {
+    color: var(--primary-color);
+}

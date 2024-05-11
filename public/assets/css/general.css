@@ -1,0 +1,90 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fuentes/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Fuente regular */
+@font-face {
+    font-family: 'Montserrat-regular';
+    src: url('../fuentes/Montserrat-master/fonts/webfonts/Montserrat-Regular.woff2') format('woff2'),
+        url('../fuentes/Montserrat-master/fonts/webfonts/Montserrat-Regular.woff') format('woff'),
+        url('../fuentes/Montserrat-master/fonts/ttf/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Fuente Bold */
+@font-face {
+    font-family: 'Montserrat-bold';
+    src: url('../fuentes/Montserrat-master/fonts/webfonts/Montserrat-Bold.woff2') format('woff2'),
+        url('../fuentes/Montserrat-master/fonts/webfonts/Montserrat-Bold.woff') format('woff'),
+        url('../fuentes/Montserrat-master/fonts/ttf/Montserrat-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Fuente Black */
+@font-face {
+    font-family: 'Montserrat-black';
+    src: url('../fuentes/Montserrat-master/fonts/webfonts/Montserrat-Black.woff2') format('woff2'),
+        url('../fuentes/Montserrat-master/fonts/webfonts/Montserrat-Black.woff') format('woff'),
+        url('../fuentes/Montserrat-master/fonts/ttf/Montserrat-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Fuente Medium */
+@font-face {
+    font-family: 'Montserrat-medium';
+    src: url('../fuentes/Montserrat-master/fonts/webfonts/Montserrat-Medium.woff2') format('woff2'),
+        url('../fuentes/Montserrat-master/fonts/webfonts/Montserrat-Medium.woff') format('woff'),
+        url('../fuentes/Montserrat-master/fonts/ttf/Montserrat-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0);
+        /* Sin desplazamiento inicial */
+    }
+
+    50% {
+        transform: translateY(-20px);
+        /* Desplazamiento hacia arriba */
+    }
+
+    100% {
+        transform: translateY(0);
+        /* Volver al punto inicial */
+    }
+}
+
+
+:root {
+    --white: #fff;
+    --primary-color: #FF6900;
+    --color-title: #69737B;
+    --color-text: #69737B;
+}
+
+body {
+    font-family: 'Montserrat-regular';
+    box-sizing: border-box;
+}
+
+.title_main {
+    font-family: 'Montserrat-black';
+    font-size: 2.5em;
+    color: var(--color-title);
+}
+
+.paragraph {
+    color: #ffffffb4;
+}
