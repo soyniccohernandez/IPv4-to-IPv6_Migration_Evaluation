@@ -9,6 +9,7 @@ use App\Models\User;
 class UsuarioPregunta extends Model
 {
     use HasFactory;
+    protected $table = 'usuarios_preguntas';
     protected $fillable = ['usuario_id', 'pregunta_id', 'respuesta', 'estado'];
 
     public function usuario()

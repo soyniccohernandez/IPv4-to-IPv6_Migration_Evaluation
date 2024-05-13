@@ -122,7 +122,15 @@
     /* Ocupa 2 filas */
 }
 
+ /* Color principal personalizado */
+ .toast-success {
+    background-color: #7F27FF !important;
+}
 
+/* Margen inferior adicional */
+.toast-bottom-center {
+    margin-bottom: 5rem !important;
+}
 
 
 

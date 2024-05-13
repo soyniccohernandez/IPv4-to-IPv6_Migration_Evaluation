@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PreguntaController;
+use App\Http\Controllers\UsuarioPreguntaController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +24,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/menu', [CategoriaController::class, 'index']);
 Route::get('/fase/{id_fase}', [PreguntaController::class, 'listarPreguntas']);
+Route::post('/matricular/fase',[UsuarioPreguntaController::class, 'matricularFase'])->name('matricularFase');;
 
 
 require __DIR__.'/auth.php';

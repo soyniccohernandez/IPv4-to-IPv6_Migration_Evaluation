@@ -8,23 +8,45 @@
 }
 
 
-.title_main{
+.title_main {
     color: var(--primary-color);
     font-size: 5em;
 }
 
-.icon_section_pregunta{
+.icon_section_pregunta {
     display: block;
     width: 7rem;
     height: 7rem;
-    background-image: url(../iconos/hardware.svg);
+    
     background-size: cover;
     background-position: center center;
 }
-.btn-next{
+
+.icon-1{
+    background-image: url(../iconos/hardware.svg);
+}
+
+.icon-2{
+    background-image: url(../iconos/software.svg);
+}
+.icon-3{
+    background-image: url(../iconos/planeacion.svg);
+}
+.icon-4{
+    background-image: url(../iconos/implementacion.svg);
+}
+.icon-5{
+    background-image: url(../iconos/capacitacion.svg);
+}
+
+.btn-next {
     background-color: var(--primary-color);
     color: var(--white);
     display: none;
+}
+
+.btn-next:hover{
+    background-color: #FFAF45;
 }
 
 .paragraph {
@@ -32,11 +54,12 @@
     color: var(--color-text);
 }
 
-.content_options{
+.content_options {
     display: flex;
     justify-content: space-between;
 }
-.content_options .item_options{
+
+.content_options .item_options {
     width: 7rem;
     height: 7rem;
     background-color: rgba(255, 105, 0, 38%);
@@ -49,7 +72,12 @@
     font-family: 'Montserrat-Black';
 }
 
-.content_options .item_options:hover{
+.content_options .item_options:hover {
+    background-color: rgb(255, 105, 0);
+    color: var(--white);
+}
+
+.content_options .item_options:focus {
     background-color: rgb(255, 105, 0);
     color: var(--white);
 }
@@ -149,7 +177,7 @@
     gap: 1rem;
 }
 
-.item_grid .icon_5{
+.item_grid .icon_5 {
     background-image: url(../iconos/capacitacion.svg);
     background-size: cover;
     background-position: center center;
@@ -162,6 +190,19 @@
 }
 
 
+
+
+.btn-end-section {
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+    display: block;
+    width: 100%;
+}
+
+
+.btn-end-section:hover{
+    background-color: #FFAF45;
+}
 
 
 
