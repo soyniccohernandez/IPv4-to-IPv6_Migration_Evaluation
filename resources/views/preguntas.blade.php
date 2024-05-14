@@ -116,6 +116,7 @@
                     
                     <form method="POST" action="{{ route('matricularFase') }}" class="form-end-section" id="form_matricularFase">
                     @csrf
+                    <input type="hidden" name="categoria_id" value="{{$categoria->id}}">
                         <p class="paragraph">
                             ¡Felicitaciones por haber finalizado esta etapa de evaluación para la migración a IPv6 en tu empresa! Pasar a la siguiente etapa es un gran logro y un paso importante hacia la modernización de tu infraestructura de red.
                         <p>

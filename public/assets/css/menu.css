@@ -116,6 +116,7 @@
     background-position: center center;
 }
 
+
 .item_grid:nth-child(3),
 .item_grid:nth-child(4) {
     grid-row: span 4;
@@ -130,6 +131,25 @@
 /* Margen inferior adicional */
 .toast-bottom-center {
     margin-bottom: 5rem !important;
+}
+
+.estado-1{
+    background-color: #31363F;
+}
+
+.estado-1 .text-item-menu{
+    color: #fff !important;
+}
+
+.estado-1:hover{
+    background-color: #31363F;
+}
+
+
+.warning-toast {
+    background-color: #7F27FF; /* Color de fondo personalizado */
+    color: #FFFFFF; /* Color del texto */
+    font-weight: bold; /* Estilo de fuente en negrita */
 }
 
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pregunta;
 use App\Models\UsuarioPregunta;
+use App\Models\User;
+use App\Models\UsuariosCategoria;
 use Illuminate\Support\Facades\Auth;
 
 class UsuarioPreguntaController extends Controller
@@ -12,7 +14,11 @@ class UsuarioPreguntaController extends Controller
 
     public function matricularFase(Request $request)
     {
+
         $usuario = Auth::user();
+
+
+        $categoria = $request->categoria_id;
 
         $matriz = json_decode($request->matricularFase_data);
 
@@ -33,10 +39,15 @@ class UsuarioPreguntaController extends Controller
 
             // Guardar la nueva respuesta en la base de datos
             $nuevaRespuesta->save();
-           
         }
+
+        UsuariosCategoria::create([
+            'usuario_id' => $usuario->id,
+            'categoria_id' => $categoria,
+            'estado' => 1, 
+        ]);
+        
 
         return redirect('/menu')->with('mensaje', '¡Excelente! Has terminado una fase de la evaluación para la migración a IPV6');
     }
-
 }
