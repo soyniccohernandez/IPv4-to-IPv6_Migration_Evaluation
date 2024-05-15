@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('usuario_id')->constrained('users');
             $table->foreignId('categoria_id')->constrained('categorias');
+            $table->boolean('aprobado')->nullable();
             $table->integer('estado')->default(0);
             $table->timestamps();
         });

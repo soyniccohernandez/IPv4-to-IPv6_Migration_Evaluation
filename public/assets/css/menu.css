@@ -154,4 +154,14 @@
 
 
 
+.btn-resultados{
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+.btn-resultados:hover{
+    background-color: #FFAF45;
+}
+
+
+
 @media screen and (max-width: 1000px) {}

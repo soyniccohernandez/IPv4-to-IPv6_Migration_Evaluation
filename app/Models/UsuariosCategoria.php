@@ -14,6 +14,7 @@ class UsuariosCategoria extends Model
     protected $fillable = [
         'usuario_id',
         'categoria_id',
+        'aprobado',
         'estado'
     ];
 

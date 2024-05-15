@@ -1,5 +1,6 @@
 <x-app-layout>
     <link rel="stylesheet" href="{{ asset('assets/css/menu.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/resultados.css') }}">
 
     <main class="main">
         <div class="container">
@@ -31,25 +32,24 @@
                     <div class="w-100 h-100 d-flex justify-content-center align-items-cente flex-column">
                         <img class="" src="{{ asset('assets/logo/logo_universidad_light.svg') }}"
                             alt="Logotipo Universidad Compensar">
-                        <p class="paragraph my-5">Cada fase contiene preguntas específicas relacionadas con aspectos
-                            clave
-                            de la implementación de IPv6 en tu infraestructura.</p>
-
-                            @if(count($recuento) == count($categorias))
-                            <a href="/resultados/{{ auth()->user()->id }}" class="btn btn-resultados">Consultar resultados</a>
-                            @endif
+                        <p class="paragraph my-5">
+                            ¡Felicidades por completar la evaluación para la migración a IPv6! Los resultados que ves en estas tarjetas representan un análisis detallado de la preparación de tu organización para esta transición fundamental en el mundo de las tecnologías de la información. Cada tarjeta refleja no solo tus respuestas, sino también áreas clave a considerar en el proceso de migración. Utiliza esta información para identificar fortalezas, áreas de mejora y para avanzar hacia una infraestructura más robusta y preparada para el futuro de Internet. ¡Bien hecho!</p>
+                            <a href="/resultados/reporte/email" class="btn btn-resultados">Recibir recomendaciones</a>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="content-grid">
-
-                        @foreach ($categorias as $categoria)
-                            <a href="/fase/{{ $categoria->id }}" class="item_grid estado-{{ $categoria->estado }}">
-                                <span class="icon_item icon_{{ $categoria->id }}"></span>
-                                <span class="text-item-menu">{{ $categoria->descripcion }}</span>
+                        
+                        @foreach ($resultados as $resultado)
+                            <a href="#" class="item_grid ">
+                                <span class="resultado_procentaje">{{ $resultado->aprobado }}%</span>
+                                <span class="text-item-menu">{{ $resultado->descripcion }} {{ $resultado->id }}</span>
                             </a>
                         @endforeach
                     </div>
+
+
+                    {{-- <span id="recomendaciones">{{$recomendaciones}}</span> --}}
                 </div>
             </div>
         </div>
@@ -57,34 +57,5 @@
 </x-app-layout>
 
 <script>
-    function validacionCategoria() {
-        let btn_categorias = document.querySelectorAll('.estado-1');
-        
-        // Iterar sobre cada elemento con clase '.estado-1'
-        btn_categorias.forEach(btn_categoria => {
-            btn_categoria.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                toastr.info('Esta fase ya ha sido enviada', 'Advertencia', {
-                    closeButton: true,
-                    progressBar: true,
-                    positionClass: 'toast-bottom-center',
-                    showDuration: 300,
-                    hideDuration: 1000,
-                    timeOut: 10000,
-                    extendedTimeOut: 1000,
-                    showEasing: 'swing',
-                    hideEasing: 'linear',
-                    showMethod: 'fadeIn',
-                    hideMethod: 'fadeOut',
-                    progressBarColor: '#7F27FF',
-                    toastClass: 'custom-toast'
-                });
-            });
-        });
-    }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        validacionCategoria();
-    });
 </script>

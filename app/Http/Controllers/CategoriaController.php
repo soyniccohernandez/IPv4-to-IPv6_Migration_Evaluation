@@ -28,9 +28,9 @@ class CategoriaController extends Controller
         // dd($categorias);
     
 
- 
+        $recuento = UsuariosCategoria::where('usuario_id', $usuarioId)->get();  
 
 
-        return view('menu', ['categorias' => $categorias]);
+        return view('menu', ['categorias' => $categorias, 'recuento' => $recuento]);
     } 
 }

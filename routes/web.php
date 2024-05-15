@@ -24,7 +24,12 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/menu', [CategoriaController::class, 'index']);
 Route::get('/fase/{id_fase}', [PreguntaController::class, 'listarPreguntas']);
-Route::post('/matricular/fase',[UsuarioPreguntaController::class, 'matricularFase'])->name('matricularFase');;
+Route::post('/matricular/fase',[UsuarioPreguntaController::class, 'matricularFase'])->name('matricularFase');
+Route::get('/resultados/{id_usuarios}', [UsuarioPreguntaController::class, 'resultadosChat']);
+
+
+
+Route::get('/resultados/reporte/email', [UsuarioPreguntaController::class, 'reporte']);
 
 
 require __DIR__.'/auth.php';
