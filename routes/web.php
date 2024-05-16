@@ -30,6 +30,7 @@ Route::get('/resultados/{id_usuarios}', [UsuarioPreguntaController::class, 'resu
 
 
 Route::get('/resultados/reporte/email', [UsuarioPreguntaController::class, 'reporte']);
+Route::get('/testReporte', [UsuarioPreguntaController::class, 'testReporte']);
 
 
 require __DIR__.'/auth.php';

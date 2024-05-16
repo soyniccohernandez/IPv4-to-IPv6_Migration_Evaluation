@@ -17,9 +17,9 @@ class ReporteResultados extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($recomendaciones)
     {
-        //
+        $this->recomendaciones = $recomendaciones;
     }
 
     /**
@@ -36,11 +36,10 @@ class ReporteResultados extends Mailable
     /**
      * Get the message content definition.
      */
-    public function content(): Content
+    public function build()
     {
-        return new Content(
-            view: 'emailRecomendaciones',
-        );
+        return $this->view('emailRecomendaciones')
+                    ->with('recomendaciones', $this->recomendaciones);
     }
 
     /**

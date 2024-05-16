@@ -110,7 +110,48 @@ class UsuarioPreguntaController extends Controller
     }
 
     public function reporte(){
-        Mail::to('ericknicolashernandezdiaz@gmail.com')->send(new ReporteResultados);
+
+        $calificaciones = UsuariosCategoria::where('usuario_id',Auth::id())->get();
+        $recomendaciones = [];
+
+        foreach($calificaciones as $calificacion){
+            // dump($calificacion->aprobado);
+            // dump($recomendaciones);
+            if($calificacion->aprobado < 51){
+                $recomendacion = Recomendacion::where('id_categoria',$calificacion->categoria_id)->get();
+                foreach ($recomendacion as $rec) {
+                    array_push($recomendaciones, $rec);
+                }
+            }
+            
+        }
+
+        // dd($recomendaciones);
+        Mail::to(Auth::user()->email)->send(new ReporteResultados($recomendaciones));
         return view('/dashboard', ['mensaje' => 'Recomendaciones enviadas']);
     }
+
+
+
+    public function testReporte(){
+
+        // return "Hola desde Test reporte";
+        $calificaciones = UsuariosCategoria::where('usuario_id',Auth::id())->get();
+        $recomendaciones = [];
+
+        foreach($calificaciones as $calificacion){
+            // dump($calificacion->aprobado);
+            // dump($recomendaciones);
+            if($calificacion->aprobado < 51){
+                $recomendacion = Recomendacion::where('id_categoria',$calificacion->categoria_id)->get();
+                foreach ($recomendacion as $rec) {
+                    array_push($recomendaciones, $rec);
+                }
+            }
+            
+        }
+
+        return view('/emailRecomendaciones', ['recomendaciones' => $recomendaciones]);
+    }
+    
 }
