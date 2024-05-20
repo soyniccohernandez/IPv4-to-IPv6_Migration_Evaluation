@@ -43,7 +43,7 @@
                         @foreach ($resultados as $resultado)
                             <a href="#" class="item_grid ">
                                 <span class="resultado_procentaje">{{ $resultado->aprobado }}%</span>
-                                <span class="text-item-menu">{{ $resultado->descripcion }} {{ $resultado->id }}</span>
+                                <span class="text-item-menu">{{ $resultado->descripcion }}</span>
                             </a>
                         @endforeach
                     </div>

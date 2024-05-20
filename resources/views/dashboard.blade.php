@@ -1,6 +1,38 @@
 <x-app-layout>
+    <style>
+        /* Color principal personalizado */
+        .toast-success {
+            background-color: #7F27FF !important;
+        }
 
+        /* Margen inferior adicional */
+        .toast-bottom-center {
+            margin-bottom: 5rem !important;
+        }
+    </style>
 
+    @if (session('mensaje'))
+    <script>
+        // Configurar opciones personalizadas para Toastr
+        toastr.options = {
+            closeButton: true, // Mostrar botón de cierre
+            progressBar: true, // Mostrar barra de progreso
+            positionClass: 'toast-bottom-center', // Posición en el centro inferior
+            showDuration: 300, // Duración de la animación de mostrar
+            hideDuration: 1000, // Duración de la animación de ocultar
+            timeOut: 10000, // Duración visible de la notificación
+            extendedTimeOut: 1000, // Duración adicional para mantener visible
+            showEasing: 'swing', // Efecto de animación al mostrar
+            hideEasing: 'linear', // Efecto de animación al ocultar
+            showMethod: 'fadeIn', // Método de animación al mostrar
+            hideMethod: 'fadeOut', // Método de animación al ocultar
+            progressBarColor: '#7F27FF' // Color personalizado de la barra de progreso
+        };
+
+        // Mostrar notificación Toastr al cargar la página
+        toastr.success("{{ session('mensaje') }}", 'Fase Completada');
+    </script>
+    @endif
 
     <main class="main">
         <div class="container">
@@ -25,7 +57,7 @@
                         <div class="data_person">
                             <!-- <span class="name_profile">NICOLÁS HERNÁNDEZ</span> -->
                             <!-- <span class="company_profile">ACTORES SOCIEDAD COLOMBIANA DE GESTIÓN</span> -->
-                           
+
 
                         </div>
 

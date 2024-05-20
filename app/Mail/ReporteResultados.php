@@ -6,13 +6,15 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
-use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Content;
 use Illuminate\Queue\SerializesModels;
+
 
 class ReporteResultados extends Mailable
 {
     use Queueable, SerializesModels;
+    public $recomendaciones;
 
     /**
      * Create a new message instance.
@@ -39,7 +41,14 @@ class ReporteResultados extends Mailable
     public function build()
     {
         return $this->view('emailRecomendaciones')
-                    ->with('recomendaciones', $this->recomendaciones);
+            ->with('recomendaciones', $this->recomendaciones);
+    }
+
+    public function content(): Content
+    {
+        return new Content(
+            view: 'emailRecomendaciones',
+        );
     }
 
     /**
