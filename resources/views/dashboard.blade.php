@@ -9,6 +9,10 @@
         .toast-bottom-center {
             margin-bottom: 5rem !important;
         }
+        .paragraph{
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
     </style>
 
     @if (session('mensaje'))

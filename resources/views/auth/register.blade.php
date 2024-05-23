@@ -14,7 +14,7 @@
                     <img class="ilustacion_register" src="{{ asset('assets/vectores/ilustracion_register.svg') }}" alt="ilustracion login">
                 </div>
                 <div class="col-md-4 d-flex flex-column justify-content-center">
-                    <h1 class="title_main">Bienvenidoo</h1>
+                    <h1 class="title_main">Bienvenido</h1>
                     <p class="subtitle_register">Regístrate Aquí</p>
 
 
