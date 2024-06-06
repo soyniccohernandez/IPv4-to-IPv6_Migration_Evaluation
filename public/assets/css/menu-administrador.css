@@ -1,0 +1,44 @@
+ /* Color principal personalizado */
+ .toast-success {
+     background-color: #7F27FF !important;
+ }
+
+ /* Margen inferior adicional */
+ .toast-bottom-center {
+     margin-bottom: 5rem !important;
+ }
+
+ .paragraph {
+     font-weight: bold;
+     font-size: 1.3rem;
+ }
+
+ .card-container-admin {
+     justify-content: start;
+     flex-wrap: wrap;
+     margin-top: 5rem;
+     width: 100%;
+ }
+
+ .card-container-admin a {
+     width: 30%;
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+ .card-container-admin .card {
+     width: 100%;
+ }
+
+ .icon-tabler {
+     color: var(--primary-color);
+ }
+
+ .icono_transicion {
+     display: block;
+     width: 8rem;
+     height: 8rem;
+     background-image: url(../iconos/b.png);
+     background-position: center center;
+     background-size: cover;
+ }

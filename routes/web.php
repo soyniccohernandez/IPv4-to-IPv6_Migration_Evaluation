@@ -16,6 +16,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/dashboard/admin', function () {
+    return view('dashboardAdmin');
+})->middleware(['auth', 'verified'])->name('dashboardAdmin');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -32,7 +36,9 @@ Route::get('/resultados/{id_usuarios}', [UsuarioPreguntaController::class, 'resu
 Route::get('/resultados/reporte/email', [UsuarioPreguntaController::class, 'reporte']);
 Route::get('/testReporte', [UsuarioPreguntaController::class, 'testReporte']);
 
-
+Route::get('/preguntas/admin', [PreguntaController::class,'listarTotalPreguntas']);
+Route::post('/preguntas/agregar_actualizar', [PreguntaController::class, 'agregarActualizarPregunta']);
+Route::get('/preguntas/eliminar/{id}', [PreguntaController::class, 'eliminarPregunta']);
 
 
 require __DIR__.'/auth.php';
