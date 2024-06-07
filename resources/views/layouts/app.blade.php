@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link rel="shortcut icon" href="{{ asset('assets/favicon/favicon.png') }}" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('assets/css/general.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/intro.css') }}">
 
@@ -40,11 +41,11 @@
 
         <!-- Page Heading -->
         @if (isset($header))
-        <header class="bg-white dark:bg-gray-800 shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
+            <header class="bg-white dark:bg-gray-800 shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
         @endif
 
         <!-- Page Content -->
@@ -57,9 +58,15 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
+        integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/dataTables.rowReorder.js"></script>
     <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/rowReorder.dataTables.js"></script>
@@ -113,6 +120,16 @@
 
 
         function nuevaPregunta() {
+
+
+            // Controlar el evento keydown en el formulario
+            formulario_agregar_actualizar_pregunta.addEventListener('keydown', function(event) {
+                // Verificar si la tecla presionada es "Enter"
+                if (event.keyCode === 13) {
+                    // Prevenir el comportamiento predeterminado del formulario (enviar)
+                    event.preventDefault();
+                }
+            });
             let btn_nueva_pregunta = document.getElementById('btn_nueva_pregunta')
 
             btn_nueva_pregunta.addEventListener('click', () => {
@@ -121,11 +138,15 @@
                 btn_matricular_pregunta_formulario.classList.remove("d-none")
                 btn_editar_pregunta.classList.add("d-none")
 
+
                 $('#modalEditar').modal('show');
 
                 btn_matricular_pregunta_formulario.addEventListener('click', function(event) {
-                    event.preventDefault(); // Evitar el envío del formulario por defecto
                     operacion_formulario.value = '1';
+                    alert();
+
+
+
                     formulario_agregar_actualizar_pregunta.submit();
                 });
             })
@@ -136,6 +157,14 @@
 
         function editarPregunta() {
 
+            // Controlar el evento keydown en el formulario
+            formulario_agregar_actualizar_pregunta.addEventListener('keydown', function(event) {
+                // Verificar si la tecla presionada es "Enter"
+                if (event.keyCode === 13) {
+                    // Prevenir el comportamiento predeterminado del formulario (enviar)
+                    event.preventDefault();
+                }
+            });
 
             document.addEventListener('DOMContentLoaded', function() {
                 // Añadir evento click al contenedor de la tabla
@@ -192,27 +221,30 @@
             btn_eliminar_pregunta.forEach(function(btn) {
                 btn.addEventListener('click', function() {
                     // Mostrar el Toastr con los botones Sí y No
-                    toastrConfirmacion = toastr.warning('¿Estás seguro de que deseas continuar?', 'Confirmar eliminación', {
-                            closeButton: true,
-                            progressBar: true,
-                            positionClass: 'toast-bottom-center',
-                            showDuration: 300,
-                            hideDuration: 1000,
-                            timeOut: 10000,
-                            extendedTimeOut: 1000,
-                            showEasing: 'swing',
-                            hideEasing: 'linear',
-                            showMethod: 'fadeIn',
-                            hideMethod: 'fadeOut',
-                            progressBarColor: '#7F27FF',
-                            tapToDismiss: false,
-                        }).css('width', '300px')
-                        .append($('<button class="btn btn-success btn_alert">Sí</button>').click(function() {
-                            toastr.remove(toastrConfirmacion);
-                            eliminarRegistro();
-                        })).append($('<button class="btn btn-danger btn_alert">No</button>').click(function() {
-                            toastr.remove(toastrConfirmacion); // Cerrar el Toastr
-                        }));
+                    toastrConfirmacion = toastr.warning('¿Estás seguro de que deseas continuar?',
+                            'Confirmar eliminación', {
+                                closeButton: true,
+                                progressBar: true,
+                                positionClass: 'toast-bottom-center',
+                                showDuration: 300,
+                                hideDuration: 1000,
+                                timeOut: 10000,
+                                extendedTimeOut: 1000,
+                                showEasing: 'swing',
+                                hideEasing: 'linear',
+                                showMethod: 'fadeIn',
+                                hideMethod: 'fadeOut',
+                                progressBarColor: '#7F27FF',
+                                tapToDismiss: false,
+                            }).css('width', '300px')
+                        .append($('<button class="btn btn-success btn_alert">Sí</button>').click(
+                            function() {
+                                toastr.remove(toastrConfirmacion);
+                                eliminarRegistro();
+                            })).append($('<button class="btn btn-danger btn_alert">No</button>').click(
+                            function() {
+                                toastr.remove(toastrConfirmacion); // Cerrar el Toastr
+                            }));
                 });
             });
 
