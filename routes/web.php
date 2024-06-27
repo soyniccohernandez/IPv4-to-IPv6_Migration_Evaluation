@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PreguntaController;
+use App\Http\Controllers\RecomendacionController;
 use App\Http\Controllers\UsuarioPreguntaController;
+use App\Http\Controllers\UsuarioController;
 
 
 Route::get('/', function () {
@@ -39,6 +41,15 @@ Route::get('/testReporte', [UsuarioPreguntaController::class, 'testReporte']);
 Route::get('/preguntas/admin', [PreguntaController::class,'listarTotalPreguntas']);
 Route::post('/preguntas/agregar_actualizar', [PreguntaController::class, 'agregarActualizarPregunta']);
 Route::get('/preguntas/eliminar/{id}', [PreguntaController::class, 'eliminarPregunta']);
+
+
+Route::get('/recomendaciones/admin', [RecomendacionController::class,'listarTotalRecomendaciones']);
+Route::post('/recomendaciones/agregar_actualizar', [RecomendacionController::class, 'agregarActualizarRecomendacion']);
+Route::get('/recomendaciones/eliminar/{id}', [RecomendacionController::class, 'eliminarRecomendacion']);
+
+
+Route::get('/usuarios/admin', [UsuarioController::class,'listarUsuarios']);
+
 
 
 require __DIR__.'/auth.php';

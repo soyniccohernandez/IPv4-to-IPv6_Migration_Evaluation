@@ -11,7 +11,7 @@ th, td{
     padding: 2rem !important;
 }
 
-#table-preguntas thead th{
+#table-preguntas thead th, #table-recomendaciones thead th, #table-usuarios thead th{
     background-color: #FF6900 !important;
     color: #fff;
 }

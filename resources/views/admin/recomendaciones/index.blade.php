@@ -32,45 +32,41 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item item_bread"><a href="{{ route('dashboardAdmin') }}" class="nav-link">Menú
                             principal</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Preguntas</li>
+                    <li class="breadcrumb-item active" aria-current="page">Recomendaciones</li>
                 </ol>
             </nav>
             <section class="actions d-flex justify-between align-center mt-3">
-                <span class="title-section fw-bold fs-4">Gestión de preguntas</span>
+                <span class="title-section fw-bold fs-4">Gestión de recomendaciones</span>
                 <span>
-                    <button class="btn btn-primary" id="btn_nueva_pregunta">Nueva pregunta</button>
-                    {{-- <a href="" class="btn btn-secondary">Exportar preguntas</a> --}}
+                    <button class="btn btn-primary" id="btn_nueva_recomendacion">Nueva recomendación</button>
+                    {{-- <a href="" class="btn btn-secondary">Exportar recomendación</a> --}}
                 </span>
             </section>
             <section class="data mt-3">
-                <table class="table" id="table-preguntas">
+                <table class="table" id="table-recomendaciones">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">DESCRIPCIÓN</th>
-                            <th scope="col">PONDERACIÓN</th>
+                            <th scope="col">RECOMENDACIÓN</th>
                             <th scope="col">CATEGORIA</th>
-                            <th scope="col">REPUESTA</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($preguntas as $pregunta)
+                        @foreach ($recomendaciones as $recomendacion)
                             <tr>
-                                <td>{{ $pregunta->id }}</td>
-                                <td>{{ $pregunta->descripcion }}</td>
-                                <td>{{ $pregunta->ponderacion }}</td>
-                                <td data-id="{{ $pregunta->categoria_id }}">{{ $pregunta->categoria }}</td>
-                                <td class="text-center">{{ $pregunta->respuesta }}</td>
+                                <td>{{ $recomendacion->id }}</td>
+                                <td>{{ $recomendacion->recomendacion }}</td>
+                                <td data-id="{{ $recomendacion->id_categoria }}">{{ $recomendacion->categoria }}</td>
                                 <td class="text-center">
                                     <div class="d-flex justify-center gap-3 align-center">
-                                        <a href="#" class="nav nav-link btn_editar" data="{{ $pregunta->id }}"
-                                            id="btn_editar">Editar</a>
+                                        <a href="#" class="nav nav-link btn_editar"
+                                            data="{{ $recomendacion->id }}" id="btn_editar">Editar</a>
 
-                                        <a href="#" class="nav nav-link text-warning btn_eliminar_pregunta"
-                                            id="btn_eliminar_pregunta">Eliminar</a>
+                                        <a href="#" class="nav nav-link text-warning btn_eliminar_recomendacion"
+                                            id="btn_eliminar_recomendacion">Eliminar</a>
 
-                                        <a href="/preguntas/eliminar/{{ $pregunta->id }}" class="d-none"
+                                        <a href="/recomendaciones/eliminar/{{ $recomendacion->id }}" class="d-none"
                                             id="eliminar_registro"></a>
                                     </div>
                                 </td>
@@ -88,24 +84,19 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="titulo_modal">Actualizar pregunta</h1>
+                    <h1 class="modal-title fs-5" id="titulo_modal">Actualizar recomendación</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="d-flex flex-column gap-4" id="formulario_agregar_actualizar_pregunta" method="POST"
-                        action="/preguntas/agregar_actualizar" enctype="multipart/form-data">
+                    <form class="d-flex flex-column gap-4" id="formulario_agregar_actualizar_recomendacion"
+                        method="POST" action="/recomendaciones/agregar_actualizar" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="operacion_formulario" id="operacion_formulario">
                         <input type="hidden" name="inputId" id="inputId">
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Ingresa la pregunta" name="inputDescripcion" id="inputDescripcion"
+                            <textarea class="form-control" placeholder="Ingresa la recomendacion" name="inputRecomendacion" id="inputRecomendacion"
                                 style="height: 100px"></textarea>
-                            <label for="inputDescripcion">Pregunta</label>
-                        </div>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Ingresa la ponderación de respuesta" name="inputPonderacion"
-                                id="inputPonderacion" style="height: 100px"></textarea>
-                            <label for="inputPonderacion">Ponderación</label>
+                            <label for="inputRecomendacion">Recomendación</label>
                         </div>
                         <div class="form-floating">
                             <select class="form-control" name="inputCategoria" id="inputCategoria"
@@ -118,17 +109,12 @@
                             </select>
                             <label for="inputCategoria">Fases para la migración iPV6</label>
                         </div>
-                        <div class="form-floating">
-                            <input class="form-control" placeholder="Ingresa la respuesta para esta pregunta"
-                                name="inputRespuesta" id="inputRespuesta" style="height: 100px">
-                            <label for="inputRespuesta">Respuesta</label>
-                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary d-none"
-                                id="btn_editar_pregunta_formulario">Guardar cambios</button>
+                                id="btn_editar_recomendacion_formulario">Guardar cambios</button>
                             <button type="submit" class="btn btn-primary d-none"
-                                id="btn_matricular_pregunta_formulario">Matricular pregunta</button>
+                                id="btn_matricular_recomendacion_formulario">Matricular recomendación</button>
                         </div>
                     </form>
                 </div>
@@ -138,9 +124,10 @@
     </div>
 
 
+
     @push('scripts')
         <script>
-            new DataTable('#table-preguntas', {
+            new DataTable('#table-recomendaciones', {
                 pageLength: 5,
                 lengthChange: false,
                 language: {
@@ -161,77 +148,61 @@
 
 
 
+            // Variables Recomendaciones
 
-
-            // Variables Preguntas
             let btnEditar = document.getElementById('btn_editar');
             let modal = document.getElementById('modalEditar');
-            
+
             let campoId = document.getElementById('inputId')
-            let campoDescripcion = document.getElementById('inputDescripcion')
-            let campoPonderacion = document.getElementById('inputPonderacion')
+            let campoRecomendacion = document.getElementById('inputRecomendacion')
             let campoCategoria = document.getElementById('inputCategoria')
-            let campoRespuesta = document.getElementById('inputRespuesta')
-            
-            let btn_editar_pregunta = document.getElementById('btn_editar_pregunta_formulario')
-            let btn_matricular_pregunta_formulario = document.getElementById('btn_matricular_pregunta_formulario')
-            let formulario_agregar_actualizar_pregunta = document.getElementById('formulario_agregar_actualizar_pregunta')
-            let operacion_formulario = document.getElementById('operacion_formulario')
 
-
-
-
-
-
-
-
-            nuevaPregunta()
-            editarPregunta()
-            eliminarPregunta()
+            let btn_editar_recomendacion = document.getElementById('btn_editar_recomendacion_formulario')
+            let btn_matricular_recomendacion_formulario = document.getElementById('btn_matricular_recomendacion_formulario')
+            let formulario_agregar_actualizar_recomendacion = document.getElementById(
+                'formulario_agregar_actualizar_recomendacion')
 
 
 
             nuevaRecomendacion()
+            editarRecomendacion()
+            eliminarPregunta()
 
 
-            function nuevaPregunta() {
+            function nuevaRecomendacion() {
 
 
                 // Controlar el evento keydown en el formulario
-                formulario_agregar_actualizar_pregunta.addEventListener('keydown', function(event) {
+                formulario_agregar_actualizar_recomendacion.addEventListener('keydown', function(event) {
                     // Verificar si la tecla presionada es "Enter"
                     if (event.keyCode === 13) {
                         // Prevenir el comportamiento predeterminado del formulario (enviar)
                         event.preventDefault();
                     }
                 });
-                let btn_nueva_pregunta = document.getElementById('btn_nueva_pregunta')
+                let btn_nueva_recomendacion = document.getElementById('btn_nueva_recomendacion')
 
-                btn_nueva_pregunta.addEventListener('click', () => {
-                    document.getElementById('titulo_modal').innerHTML = "Nueva Pregunta"
-                    btn_matricular_pregunta_formulario.innerHTML = "Matricular pregunta"
-                    btn_matricular_pregunta_formulario.classList.remove("d-none")
-                    btn_editar_pregunta.classList.add("d-none")
+                btn_nueva_recomendacion.addEventListener('click', () => {
+                    document.getElementById('titulo_modal').innerHTML = "Nueva Recomendación"
+                    btn_matricular_recomendacion_formulario.innerHTML = "Matricular recomendacion"
+                    btn_matricular_recomendacion_formulario.classList.remove("d-none")
+                    btn_editar_recomendacion.classList.add("d-none")
 
 
                     $('#modalEditar').modal('show');
 
-                    btn_matricular_pregunta_formulario.addEventListener('click', function(event) {
+                    btn_matricular_recomendacion_formulario.addEventListener('click', function(event) {
                         operacion_formulario.value = '1';
-                        formulario_agregar_actualizar_pregunta.submit();
+                        formulario_agregar_actualizar_recomendacion.submit();
                     });
                 })
             }
 
 
-
-
-
-
-            function editarPregunta() {
+            function editarRecomendacion() {
 
                 // Controlar el evento keydown en el formulario
-                formulario_agregar_actualizar_pregunta.addEventListener('keydown', function(event) {
+                formulario_agregar_actualizar_recomendacion.addEventListener('keydown', function(event) {
                     // Verificar si la tecla presionada es "Enter"
                     if (event.keyCode === 13) {
                         // Prevenir el comportamiento predeterminado del formulario (enviar)
@@ -241,9 +212,9 @@
 
                 document.addEventListener('DOMContentLoaded', function() {
                     // Añadir evento click al contenedor de la tabla
-                    document.getElementById('table-preguntas').addEventListener('click', function(event) {
-                        btn_editar_pregunta.classList.remove("d-none")
-                        btn_matricular_pregunta_formulario.classList.add("d-none")
+                    document.getElementById('table-recomendaciones').addEventListener('click', function(event) {
+                        btn_editar_recomendacion.classList.remove("d-none")
+                        btn_matricular_recomendacion_formulario.classList.add("d-none")
 
                         // Verificar si el clic ocurrió en un enlace con la clase 'btn_editar'
                         if (event.target.classList.contains('btn_editar')) {
@@ -254,18 +225,14 @@
 
                             // Obtener los valores de las celdas de la fila
                             let id = row.children[0].textContent.trim();
-                            let descripcion = row.children[1].textContent.trim();
-                            let ponderacion = row.children[2].textContent.trim();
-                            let categoria = row.children[3].getAttribute('data-id');
-                            let respuesta = row.children[4].textContent.trim();
+                            let recomendacion = row.children[1].textContent.trim();
+                            let categoria = row.children[2].getAttribute('data-id');
 
-                            // Mostrar los valores en la consola
                             operacion_formulario.value = '2';
-                            campoId.value = id;
-                            campoDescripcion.value = descripcion;
-                            campoPonderacion.value = ponderacion;
-                            campoCategoria.value = categoria;
-                            campoRespuesta.value = respuesta;
+                            campoId.value = id
+                            campoRecomendacion.value =  recomendacion
+                            campoCategoria.value = categoria
+
 
 
 
@@ -275,9 +242,9 @@
 
                     });
                 });
-                btn_editar_pregunta.addEventListener('click', (event) => {
+                btn_editar_recomendacion.addEventListener('click', (event) => {
                     // event.preventDefault();
-                    formulario_agregar_actualizar_pregunta.submit();
+                    formulario_agregar_actualizar_recomendacion.submit();
 
 
                 })
@@ -286,12 +253,12 @@
 
 
             function eliminarPregunta() {
-                let btn_eliminar_pregunta = document.querySelectorAll('.btn_eliminar_pregunta')
+                let btn_eliminar_recomendacion = document.querySelectorAll('.btn_eliminar_recomendacion')
 
 
                 let toastrConfirmacion; // Variable para almacenar el Toastr
 
-                btn_eliminar_pregunta.forEach(function(btn) {
+                btn_eliminar_recomendacion.forEach(function(btn) {
                     btn.addEventListener('click', function() {
                         // Mostrar el Toastr con los botones Sí y No
                         toastrConfirmacion = toastr.warning('¿Estás seguro de que deseas continuar?',
