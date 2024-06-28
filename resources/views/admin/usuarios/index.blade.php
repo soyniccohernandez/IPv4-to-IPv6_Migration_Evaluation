@@ -42,35 +42,49 @@
                     {{-- <a href="" class="btn btn-secondary">Exportar recomendación</a> --}}
                 </span>
             </section>
+
+
             <section class="data mt-3">
                 <table class="table" id="table-usuarios">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">#</th>
-                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">CORREO</th>
+                            <th scope="col">ROL</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                       
+                        @foreach ($usuarios as $usuario)
                             <tr>
-                                <td>##</td>
-                                <td>##</td>
-                                <td data-id="##">##</td>
+                                <td>{{ $usuario->id }}</td>
+                                <td>{{ $usuario->name }}</td>
+                                <td>{{ $usuario->email }}</td>
+                                <td>
+
+
+                                    @if ($usuario->role == 1)
+                                        {{ 'Administrador' }}
+                                    @else
+                                        {{ 'Estandar' }}
+                                    @endif
+
+                                </td>
                                 <td class="text-center">
                                     <div class="d-flex justify-center gap-3 align-center">
-                                        <a href="#" class="nav nav-link btn_editar"
-                                            data="##" id="btn_editar">Editar</a>
 
-                                        <a href="#" class="nav nav-link text-warning btn_eliminar_recomendacion"
-                                            id="btn_eliminar_recomendacion">Eliminar</a>
 
-                                        <a href="##" class="d-none"
-                                            id="eliminar_registro"></a>
+
+                                        <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href=""><i class="fa-solid fa-database"></i></a>
+                                        <a href=""><i class="fa-solid fa-arrows-rotate"></i></a>
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#modalCambioClave"><i
+                                                class="fa-solid fa-lock"></i></a>
                                     </div>
                                 </td>
                             </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </section>
@@ -101,7 +115,7 @@
                             <select class="form-control" name="inputCategoria" id="inputCategoria"
                                 aria-label="Selecciona la categoria">
                                 <option selected value="">Selecciona categoria</option>
-                                
+
                             </select>
                             <label for="inputCategoria">Fases para la migración iPV6</label>
                         </div>
@@ -115,6 +129,28 @@
                     </form>
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalCambioClave" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar contraseña</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group flex-nowrap">
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                      </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
         </div>
     </div>
@@ -141,9 +177,6 @@
                     }
                 }
             });
-
-
-
         </script>
     @endpush
 </x-app-layout>
