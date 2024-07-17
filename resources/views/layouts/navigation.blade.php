@@ -12,12 +12,10 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    @if(Auth::user()->role != 1)
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Fundación Universitaria Compensar') }}
-                    </x-nav-link>
-                    @endif
+                    @if(Auth::user()->role == 1)
+                    
                     <x-nav-link :href="route('dashboardAdmin')" :active="request()->routeIs('dashboard')">
+                    @endif
                     Administrador
                     </x-nav-link>
                 </div>

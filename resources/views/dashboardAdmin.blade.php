@@ -1,6 +1,11 @@
 <x-app-layout>
     <link rel="stylesheet" href="{{ asset('assets/css/menu-administrador.css') }}">
 
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
 
     @if (session('mensaje'))
         <script>

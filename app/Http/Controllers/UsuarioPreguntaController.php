@@ -125,8 +125,10 @@ class UsuarioPreguntaController extends Controller
             }
         }
 
-        // dd($recomendaciones);
-        Mail::to(Auth::user()->email)->send(new ReporteResultados($recomendaciones));
+        // dd($recomendaciones[0]->id);
+
+        $email = Auth::user()->email;
+        Mail::to('ericknicolashernandezdiaz@gmail.com')->send(new ReporteResultados($recomendaciones));
         Auth::logout();
         // Almacena el mensaje en la sesión
         return redirect('/')->with('mensaje', 'Recomendaciones enviadas. Revisa tu email para buenas prácticas en tu proceso de migración.');

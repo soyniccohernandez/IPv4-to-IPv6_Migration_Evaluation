@@ -6,6 +6,9 @@
             font-weight: bold;
             font-size: 1.3rem;
         }
+        a{
+            text-decoration: none !important;
+        }
     </style>
     <main class="main">
         <div class="container">

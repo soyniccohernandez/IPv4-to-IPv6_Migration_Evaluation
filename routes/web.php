@@ -48,7 +48,12 @@ Route::post('/recomendaciones/agregar_actualizar', [RecomendacionController::cla
 Route::get('/recomendaciones/eliminar/{id}', [RecomendacionController::class, 'eliminarRecomendacion']);
 
 
+
+
 Route::get('/usuarios/admin', [UsuarioController::class,'listarUsuarios']);
+Route::post('/actualizarClave', [UsuarioController::class, 'actualizarClave']);
+Route::get('/resetearUsuario/{id}', [UsuarioController::class, 'resetearUsuario']);
+Route::get('/respuestas/{id}', [UsuarioController::class, 'detalladoRespuestas']);
 
 
 

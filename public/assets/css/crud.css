@@ -2,7 +2,7 @@
     padding-top: 8rem;
     max-width: 1300px;
 }
- 
+
 .dt-column-order {
     display: none;
 }
@@ -11,7 +11,7 @@ th, td{
     padding: 2rem !important;
 }
 
-#table-preguntas thead th, #table-recomendaciones thead th, #table-usuarios thead th{
+#table-preguntas thead th, #table-recomendaciones thead th, #table-usuarios thead th, #table-respuestas thead th{
     background-color: #FF6900 !important;
     color: #fff;
 }
@@ -29,8 +29,9 @@ input[type="search"]{
     border: solid 1px #ff6a0075 !important;
     padding: 0.6rem !important;
 }
-.item_bread{
-    color: var(--primary-color);
+.row nav .item_bread{
+    color: var(--primary-color) !important;
+    text-decoration: none;
 }
 .btn-primary{
     background-color: var(--primary-color);
@@ -47,6 +48,10 @@ input[type="search"]{
 
 .toast-success {
     background-color: #7F27FF !important;
+}
+
+.toast-warning {
+    background-color: #ff2756 !important;
 }
 .btn_alert{
     margin-top: 1rem;
