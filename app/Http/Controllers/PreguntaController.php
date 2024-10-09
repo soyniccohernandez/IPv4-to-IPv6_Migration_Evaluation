@@ -29,6 +29,25 @@ class PreguntaController extends Controller
     public function agregarActualizarPregunta(Request $request)
     {
 
+        // Definir las reglas de validación
+        $rules = [
+            'inputDescripcion' => 'required|string|max:255',
+            'inputPonderacion' => 'required',
+            'inputCategoria' => 'required|exists:categorias,id', // Verifica que la categoría exista
+            'inputRespuesta' => 'required|string|max:500',
+        ];
+
+        // Mensajes personalizados de error
+        $messages = [
+            'inputDescripcion.required' => 'La descripción es obligatoria.',
+            'inputPonderacion.required' => 'La ponderación es obligatoria.',
+            'inputCategoria.required' => 'Debe seleccionar una categoría válida.',
+            'inputRespuesta.required' => 'La respuesta es obligatoria.',
+        ];
+
+        // Validar la solicitud
+        $request->validate($rules, $messages);
+
         if ($request->operacion_formulario == 1) {
             $pregunta = new Pregunta();
             $pregunta->descripcion = $request->inputDescripcion;
@@ -38,8 +57,6 @@ class PreguntaController extends Controller
             $pregunta->save();
 
             return redirect('/preguntas/admin')->with('mensaje', '¡Excelente! Pregunta matriculada correctamente');
-
-
         } else if ($request->operacion_formulario == 2) {
             $pregunta = Pregunta::findOrFail($request->inputId);
             $pregunta->descripcion = $request->inputDescripcion;

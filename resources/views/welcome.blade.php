@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="icon" href="{{ asset('assets/favicon/favicon.png') }}" type="png">
+
     <style>
         /* Color principal personalizado */
         .toast-success {
@@ -108,10 +110,97 @@
 
         .companys {
             margin-top: 6rem !important;
+            width: 80%;
         }
 
         .resalt {
             color: var(--primary-color);
+        }
+
+        .img_main {
+            width: 30%;
+            animation: floatAnimation 3s ease-in-out infinite alternate; 
+        }
+
+        @media (max-width: 800px) {
+            .ocultar_menu {
+                background-color: red;
+                display: none;
+            }
+
+            .title-main {
+                font-size: 28px;
+                text-align: center;
+                max-width: 80%;
+                margin: auto;
+            }
+
+            .banner_main {
+                width: 100%;
+                width: 100vw;
+                border-radius: 0;
+                margin-top: 4rem;
+                height: 100vh;
+            }
+
+            .content-header {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+            }
+
+            .btn-one {
+                width: 80%;
+                margin: auto;
+            }
+
+            .order-header {
+                flex-direction: column-reverse;
+            }
+
+            .img-header {
+                width: 50% !important;
+            }
+
+            .parrafo-index {
+                font-size: 24px;
+            }
+
+            .title_section {
+                font-size: 28px;
+            }
+
+            .companys {
+                display: none;
+            }
+
+            .img_mobile {
+                display: block !important;
+                width: 100%;
+                margin: auto;
+            }
+
+            .img_main {
+                width: 80%;
+                
+
+            }
+            .title_section{
+                text-align: center;
+                line-height: 2rem;
+            }
+            .section_two p{
+                text-align: center;
+            }
+
+            footer .btn-index{
+                width: 100% !important;
+                margin-bottom: 2rem !important;
+            }
+            .footer_navs{
+                padding: 0 !important;
+            }
         }
     </style>
 </head>
@@ -123,47 +212,59 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="w-100 px-5">
             <div class="w-100 d-flex justify-content-between align-items-center">
-                <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
-                <ul class="navbar-nav">
-                    <span class="fw-bold">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-grid-scan">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M10 8v8" />
-                            <path d="M14 8v8" />
-                            <path d="M8 10h8" />
-                            <path d="M8 14h8" />
-                            <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
-                            <path d="M4 16v2a2 2 0 0 0 2 2h2" />
-                            <path d="M16 4h2a2 2 0 0 1 2 2v2" />
-                            <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
-                        </svg>
-                        Migración IPv4 a IPv6</span>
-                </ul>
-                <a href="http://127.0.0.1:8000/login" class="btn btn-index" type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-grid-scan">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M10 8v8" />
-                        <path d="M14 8v8" />
-                        <path d="M8 10h8" />
-                        <path d="M8 14h8" />
-                        <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
-                        <path d="M4 16v2a2 2 0 0 0 2 2h2" />
-                        <path d="M16 4h2a2 2 0 0 1 2 2v2" />
-                        <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
-                    </svg>
-                    Quiero saber si estamos listos</a>
+                <div class="row w-100">
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center align-items-center ">
+                        <ul class="navbar-nav ocultar_menu">
+                            <span class="fw-bold">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-grid-scan">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M10 8v8" />
+                                    <path d="M14 8v8" />
+                                    <path d="M8 10h8" />
+                                    <path d="M8 14h8" />
+                                    <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
+                                    <path d="M4 16v2a2 2 0 0 0 2 2h2" />
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v2" />
+                                    <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
+                                </svg>
+                                Migración IPv4 a IPv6</span>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center align-items-center ">
+
+                        <a href="/login" class="btn btn-index ocultar_menu" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-grid-scan">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 8v8" />
+                                <path d="M14 8v8" />
+                                <path d="M8 10h8" />
+                                <path d="M8 14h8" />
+                                <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
+                                <path d="M4 16v2a2 2 0 0 0 2 2h2" />
+                                <path d="M16 4h2a2 2 0 0 1 2 2v2" />
+                                <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
+                            </svg>
+                            Quiero saber si estamos listos</a>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
     </nav>
 
     <div class="main position-relative">
         <span class="banner_main">
-            <div class="d-flex justify-content-center align-items-center gap-5">
-                <div class="">
+            <div class="d-flex justify-content-center align-items-center gap-5 flex-wrap order-header">
+                <div class="content-header">
                     <div class="title-main">
                         Asegura tu Red para el Mañana: Transición de IPv4 a IPv6
                     </div>
-                    <a href="http://127.0.0.1:8000/login" class="btn btn-index btn-one">
+                    <a href="/login" class="btn btn-index btn-one">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-grid-scan">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M10 8v8" />
@@ -178,19 +279,21 @@
                         Quiero saber si estamos listos
                     </a>
                 </div>
-                <img src="{{ asset('assets/vectores/ilustracion_main.svg') }}" alt="" class="w-25">
+                <img src="{{ asset('assets/vectores/ilustracion_main.svg') }}" alt="" class="img_main">
             </div>
         </span>
 
         <section class="section_one mt-5">
-            <img src="{{ asset('assets/img/company_01.png') }}" alt="" class="w-50 mt-5 companys">
+            <img src="{{ asset('assets/img/company_01.png') }}" alt="" class="companys">
+            <img src="{{ asset('assets/img/company_01_mobile.png') }}" alt="" class="w-50 mt-5 companys d-none img_mobile">
             <div class="container">
                 <div class="parrafo-index">
                     Adopta el cambio y optimiza la eficiencia de tu empresa con la <span class="resalt">migración de IPv4 a IPv6</span>. Las grandes empresas de tecnología ya migraron; la tuya no puede quedarse atrás. <span class="resalt">Asegúrate un futuro conectado</span> y una comunicación segura y sin límites.
                 </div>
 
             </div>
-            <img src="{{ asset('assets/img/company_02.png') }}" alt="" class="w-50 mt-5">
+            <img src="{{ asset('assets/img/company_02.png') }}" alt="" class="companys">
+            <img src="{{ asset('assets/img/company_02_mobile.png') }}" alt="" class="w-50 mt-5 companys d-none img_mobile">
         </section>
 
         <section class="section_two">
@@ -217,7 +320,7 @@
                 <div class="col-md-3">
                     <div class="d-flex flex-column">
                         <x-application-logo-white class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
-                        <a href="http://127.0.0.1:8000/login" class="btn btn-index d-inline-block w-50">
+                        <a href="/login" class="btn btn-index d-inline-block w-50">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-grid-scan">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M10 8v8" />

@@ -55,14 +55,24 @@
 
             <img class="logo" src="https://ucompensar.edu.co/wp-content/uploads/2021/04/main-logo.svg" alt="Logo universidad">
 
-            <div class="">{{Auth::user()->email}}</div>
             <div class="">{{Auth::user()->name}}</div>
-            <h1 class="titular_recomendaciones">Implementación Efectiva de IPv6: Estrategias Claves para una Transición
-                Exitosa</h1>
+            <!--<div class="">{{Auth::user()->email}}</div>-->
+            
+            <p>Gracias por utilizar nuestra herramienta de evaluación para la migración de IPv4 a IPv6. Después de revisar sus respuestas, hemos preparado una serie de recomendaciones que consideramos clave para asegurar una transición exitosa y eficiente.</p>
+            <br>
+            <br>
+            <h1 class="titular_recomendaciones">Resumen de Recomendaciones:</h1>
             @foreach ($recomendaciones as $recomendacion)
                 <li>{{ $recomendacion->recomendacion }}</li>
                 <!-- Reemplaza 'titulo' con el nombre de la propiedad que deseas mostrar -->
             @endforeach
+            
+            <br>
+            <br>
+            
+            <p>Si tiene alguna pregunta o necesita asistencia adicional durante este proceso, no dude en ponerse en contacto con nosotros.
+
+Agradecemos su confianza en nuestros servicios y quedamos atentos a cualquier solicitud.</p>
         </div>
     </main>
 </body>

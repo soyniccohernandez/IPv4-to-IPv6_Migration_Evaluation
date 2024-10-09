@@ -30,8 +30,8 @@ class ReporteResultados extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('enhernandez0316@gmail.com', 'Nicolás Hernández'),
-            subject: 'Reporte Resultados',
+            from: new Address('dev@actores.tech', 'Recomendaciones para la Migración de IPv4 a IPv6 en su Empresa'),
+            subject: 'Migración Ipv 4 - Ipv 6 - Ucompensar',
         );
     }
 

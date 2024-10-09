@@ -5,6 +5,10 @@
         a{
             text-decoration: none;
         }
+        .card-container-admin a{
+            width:100%;
+        }
+
     </style>
 
     @if (session('mensaje'))
@@ -34,11 +38,11 @@
         <div class="container">
             <div class="row">
                 <div class="d-flex justify-content-between grow-1 w-100">
-                    <div class="column-main w-50">
+                    <div class="column-main">
                         <span class="icono_transicion"></span>
                         <h1 class="title_main">Administrador</h1>
 
-                        <div class="card-container-admin d-flex gap-3">
+                        <div class="card-container-admin d-flex gap-3 flex-wrap">
                             <a href="/usuarios/admin">
                                 <div class="card">
                                     <div class="card-body d-flex flex-column gap-3">
