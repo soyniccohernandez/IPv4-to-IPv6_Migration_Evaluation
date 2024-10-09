@@ -29,6 +29,8 @@ class RecomendacionController extends Controller
 
     public function agregarActualizarRecomendacion(Request $request)
     {
+        // dd($request);
+        // dd($request->operacion_formulario);
 
         // Definir las reglas de validación
         $rules = [
@@ -36,7 +38,7 @@ class RecomendacionController extends Controller
             'inputCategoria' => 'required|exists:categorias,id'
         ];
 
-        // Mensajes personalizados de error
+        // // Mensajes personalizados de error
         $messages = [
             'inputRecomendacion.required' => 'Campo recomendación es obligatoria.',
             'inputCategoria.required' => 'Debe seleccionar una fase válida.',
@@ -46,6 +48,7 @@ class RecomendacionController extends Controller
         $request->validate($rules, $messages);
 
         if ($request->operacion_formulario == 1) {
+
             $recomendacion = new Recomendacion();
 
             $recomendacion->recomendacion = $request->inputRecomendacion;
@@ -54,6 +57,7 @@ class RecomendacionController extends Controller
 
             return redirect('/recomendaciones/admin')->with('mensaje', '¡Excelente! Recomendación matriculada correctamente');
         } else if ($request->operacion_formulario == 2) {
+
             $recomendacion = Recomendacion::findOrFail($request->inputId);
             $recomendacion->recomendacion = $request->inputRecomendacion;
             $recomendacion->id_categoria = $request->inputCategoria;

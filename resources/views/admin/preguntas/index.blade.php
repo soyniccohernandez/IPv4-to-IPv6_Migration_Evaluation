@@ -283,13 +283,6 @@
         }
 
 
-
-
-
-
-
-
-
         function editarPregunta() {
             // Controlar el evento keydown en el formulario
             formulario_agregar_actualizar_pregunta.addEventListener('keydown', function(event) {
